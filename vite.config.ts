@@ -15,6 +15,12 @@ export default defineConfig({
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
                 }),
+                bunny('DM Sans', {
+                    weights: [400, 500, 600, 700],
+                }),
+                bunny('Manrope', {
+                    weights: [500, 600, 700, 800],
+                }),
             ],
         }),
         inertia(),
@@ -44,6 +50,7 @@ export default defineConfig({
     },
     lint: {
         ignorePatterns: [
+            'alfar-erp-system/**',
             'vendor/**',
             'node_modules/**',
             'public/**',
@@ -67,6 +74,7 @@ export default defineConfig({
         singleAttributePerLine: false,
         htmlWhitespaceSensitivity: 'css',
         ignorePatterns: [
+            'alfar-erp-system/**',
             '.github/**',
             'composer.json',
             'resources/js/components/ui/*',
