@@ -1,0 +1,83 @@
+import type { ErpPageSchema } from '@/types/erp';
+
+export const shippingPages: Record<string, ErpPageSchema> = {
+    shippingCalendar: {
+        key: 'shippingCalendar',
+        moduleKey: 'shipping',
+        title: 'Kalender Jadwal Shipping',
+        module: 'SHIPPING SCHED',
+        desc: 'Kalender per tanggal kirim dan alamat tujuan dengan pencarian PO dan revisi.',
+        filters: [
+            ['Tanggal awal', 'date'],
+            ['Tanggal akhir', 'date'],
+            ['Nomor PO', 'search'],
+        ],
+        columns: [
+            'SKU / No. PO terkait',
+            'Nama Produk',
+            'Aksi',
+            'Tanggal Pengiriman Tersimpan',
+            'Alamat & tanggal tujuan',
+        ],
+        rows: [
+            [
+                'SKU contoh · PO contoh',
+                'Produk contoh',
+                'Revisi',
+                '—',
+                'Tujuan contoh',
+            ],
+        ],
+        actions: [
+            'Tampilkan',
+            'Buat Jadwal Baru',
+            'Export Excel',
+            'Cetak / PDF',
+        ],
+    },
+    shippingBoard: {
+        key: 'shippingBoard',
+        moduleKey: 'shipping',
+        title: 'Schedule Ship',
+        module: 'SHIPPING SCHED',
+        desc: 'Ringkasan kalender bulanan pengiriman per alamat tujuan.',
+        filters: [['Periode bulan', 'month']],
+        columns: ['Alamat Tujuan', 'Tanggal 1–31', 'Status pengiriman'],
+        rows: [['Tujuan contoh', '—', '—']],
+        actions: ['Cari / Filter', 'Bulan Sekarang'],
+        note: 'Tabel bulanan melebar. Tampilan ideal memberi opsi minggu/bulan dan mempertahankan status serta detail tujuan.',
+    },
+    loadingShipping: {
+        key: 'loadingShipping',
+        moduleKey: 'shipping',
+        title: 'Loading & Shipping',
+        module: 'SHIPPING SCHED',
+        desc: 'Catat proses loading, data kendaraan, barang diserahkan, dan histori surat jalan.',
+        filters: [
+            ['Periode pengiriman', 'date'],
+            ['Nomor PO', 'search'],
+        ],
+        fields: [
+            ['Nomor PO', 'search'],
+            ['Tanggal Shipping', 'date'],
+            ['Customer', 'text'],
+            ['Alamat', 'textarea'],
+            ['Jumlah SKU', 'number'],
+            ['Nomor Sealbag', 'text'],
+            ['Pengemudi', 'select:Pilih pengemudi'],
+            ['Nomor Polisi', 'text'],
+            ['Jenis Kendaraan', 'text'],
+            ['Waktu Shipping', 'datetime-local'],
+        ],
+        columns: [
+            'Detail Barang Diserahkan',
+            'Qty',
+            'Satuan',
+            'Foto / dokumen',
+            'Surat Jalan',
+        ],
+        rows: [['Produk contoh', '—', '—', 'Pratinjau', '—']],
+        actions: ['Cari', 'Pilih PO', 'Upload Gambar', 'Simpan Shipping'],
+        note: 'Form aktual memuat data shipping, detail barang diserahkan, serta histori Loading & Surat Jalan.',
+    },
+};
